@@ -1,3 +1,11 @@
+
+// Main game loop
+let playAgain = true;
+let attempts = 0;
+let score = 0
+
+
+while (playAgain) {
 // Demander le choix du joueur
 let playerChoice = prompt("Choisir (pierre/feuille/ciseaux)").toLowerCase();
 
@@ -29,6 +37,9 @@ const comparePfc = (player, computer) => {
         (player === 1 && computer === 0) ||
         (player === 2 && computer === 1)
     ) {
+        score++
+        console.log(score);
+        
         return "Vous gagnez !";
     } else {
         return "Vous perdez !";
@@ -38,7 +49,15 @@ const comparePfc = (player, computer) => {
 // Afficher le résultat
 alert(comparePfc(playerChoice, computerChoice));
 
-// Demander au joueur s'il veut rejouer
-if (confirm("Voulez-vous rejouer ?")) {
-    location.reload();
+// Ask to play again
+ let again = prompt("Do you want to play again? (yes/no)").toLowerCase();
+ while (again !== "yes" && again !== "no") {
+   again = prompt("Please type 'yes' or 'no':").toLowerCase();
+ }
+
+ playAgain = again === "yes" ? true : false;
+
+
 }
+alert(`Thanks for playing! Votre score : ${score}`);
+ 
