@@ -54,14 +54,14 @@ const comparePfc = (player, computer) => {
 alert(comparePfc(playerChoice, computerChoice));
 
 // Ask to play again
- let again = prompt("Do you want to play again? (yes/no)").toLowerCase();
- while (again !== "yes" && again !== "no") {
-   again = prompt("Please type 'yes' or 'no':").toLowerCase();
+ let again = prompt("Voulez vous rejouer? (oui/non)").toLowerCase();
+ while (again !== "oui" && again !== "non") {
+   again = prompt("Entrez 'oui' ou 'non':").toLowerCase();
  }
 
- playAgain = again === "yes" ? true : false;
+ playAgain = again === "oui" ? true : false;
 
 
 }
-alert(`Thanks for playing! Votre score : ${playerScore}, score de l'ordinateur : ${pcScore}`);
+alert(`Merci d'avoir joué ! Votre score : ${playerScore}, score de l'ordinateur : ${pcScore}`);
  
