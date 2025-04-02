@@ -1,11 +1,16 @@
 
+let button = document.querySelector("button")
+
 // Main game loop
 let playAgain = true;
 let attempts = 0;
-let score = 0
+let playerScore = 0
+let pcScore = 0
 
 
-while (playAgain) {
+    
+    const playGame = () =>{
+        while (playAgain) {
 // Demander le choix du joueur
 let playerChoice = prompt("Choisir (pierre/feuille/ciseaux)").toLowerCase();
 
@@ -37,11 +42,14 @@ const comparePfc = (player, computer) => {
         (player === 1 && computer === 0) ||
         (player === 2 && computer === 1)
     ) {
-        score++
-        console.log(score);
+        playerScore++
+        console.log(playerScore);
         
         return "Vous gagnez !";
     } else {
+        pcScore++
+        console.log(pcScore);
+        
         return "Vous perdez !";
     }
 };
@@ -50,14 +58,20 @@ const comparePfc = (player, computer) => {
 alert(comparePfc(playerChoice, computerChoice));
 
 // Ask to play again
- let again = prompt("Do you want to play again? (yes/no)").toLowerCase();
- while (again !== "yes" && again !== "no") {
-   again = prompt("Please type 'yes' or 'no':").toLowerCase();
+ let again = prompt("Voulez vous rejouer? (oui/non)").toLowerCase();
+ while (again !== "oui" && again !== "non") {
+   again = prompt("Entrez 'oui' or 'non':").toLowerCase();
  }
 
- playAgain = again === "yes" ? true : false;
+ playAgain = again === "oui" ? true : false;
 
 
 }
-alert(`Thanks for playing! Votre score : ${score}`);
+
+alert(`Merci d'avoir joué ! Votre score : ${playerScore}, score de l'ordinateur : ${pcScore}`);
+
+}
+
+button.addEventListener("click", playGame)
+
  
