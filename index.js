@@ -2,7 +2,8 @@
 // Main game loop
 let playAgain = true;
 let attempts = 0;
-let score = 0
+let playerScore = 0
+let pcScore = 0
 
 
 while (playAgain) {
@@ -37,11 +38,14 @@ const comparePfc = (player, computer) => {
         (player === 1 && computer === 0) ||
         (player === 2 && computer === 1)
     ) {
-        score++
-        console.log(score);
+        playerScore++
+        console.log(playerScore);
         
         return "Vous gagnez !";
     } else {
+        pcScore++
+        console.log(pcScore);
+        
         return "Vous perdez !";
     }
 };
@@ -59,5 +63,5 @@ alert(comparePfc(playerChoice, computerChoice));
 
 
 }
-alert(`Thanks for playing! Votre score : ${score}`);
+alert(`Thanks for playing! Votre score : ${playerScore}, score de l'ordinateur : ${pcScore}`);
  
